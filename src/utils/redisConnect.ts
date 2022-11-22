@@ -6,7 +6,6 @@ import NRP from 'node-redis-pubsub';
 export const redisConnect = (url: string, scope: string) => {
   const pubSub = NRP({ url, scope });
   const client = createClient({ url });
-  client.connect();
   return {
     pubSub,
     client
