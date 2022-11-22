@@ -5,16 +5,18 @@ export * from './utils/socketIO';
 export * from './utils/redisConnect';
 // export * from './utils/neo4j';
 
-interface Color {
-  red: number;
-  blue: number;
-  green: number;
-}
+// interface Color {
+//   red: number;
+//   blue: number;
+//   green: number;
+// }
 
-const color: Color = {
-  red: 1,
-  blue: 2,
-  green: 3
-};
+// const color: Color = {
+//   red: 1,
+//   blue: 2,
+//   green: 3
+// };
 
-console.log({ color });
+// console.log({ color });
+
+console.log('Utilities loaded');
