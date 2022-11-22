@@ -11,6 +11,7 @@ export const serviceUp = async (redis: RedisConnection, list: string, serviceDat
     };
     await redis.client?.set(list, JSON.stringify(upServices));
     console.log(`${serviceData.self.serviceName} newly Registered`);
+    return;
   }
   console.log(`${serviceData.self.serviceName} already Registered`);
 };
@@ -23,6 +24,7 @@ export const serviceDown = async (redis: RedisConnection, list: string, serviceN
     delete upServices[`${serviceName}`];
     await redis.client?.set(list, JSON.stringify(upServices));
     console.log(`${serviceName} De-registered`);
+    return;
   }
   console.log(`${serviceName} already De-registered`);
 };
