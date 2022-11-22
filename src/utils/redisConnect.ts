@@ -18,10 +18,10 @@ export const redisConnect = async (url: string, scope: string) => {
   }
 };
 
-type RedisConnection = ReturnType<typeof redisConnect>;
+// type RedisConnection = ReturnType<typeof redisConnect>;
 
 export type RedisCustomClient = {
   client: RedisClientType;
   pubSub: NodeRedisPubSub;
-  redisConnect: RedisConnection;
+  error?: any;
 };
