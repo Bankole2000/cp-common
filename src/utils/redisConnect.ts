@@ -3,14 +3,14 @@ import NRP, { NodeRedisPubSub } from 'node-redis-pubsub';
 
 export const redisConnect = async (url: string, scope: string) => {
   const pubSub = NRP({ url, scope });
-  const client = createClient({ url });
+  const appClient = createClient({ url });
   try {
-    await client.connect();
-    client.on('error', (error) => {
+    await appClient.connect();
+    appClient.on('error', (error) => {
       console.error(error);
       // report error to logging service (e.g. Sentry/PM2)
     });
-    return { error: null, client, pubSub };
+    return { error: null, client: appClient, pubSub };
   } catch (error) {
     console.log({ error });
     return { error, client: null, pubSub: null };
@@ -21,7 +21,7 @@ export const redisConnect = async (url: string, scope: string) => {
 // type RedisConnection = ReturnType<typeof redisConnect>;
 
 export type RedisCustomClient = {
-  client: RedisClientType;
-  pubSub: NodeRedisPubSub;
+  client: RedisClientType | null;
+  pubSub: NodeRedisPubSub | null;
   error?: any;
 };
