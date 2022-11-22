@@ -1,6 +1,6 @@
-import { RedisCustomClient } from './redisConnect';
+import { RedisConnection } from './redisConnect';
 
-export const serviceUp = async (redis: RedisCustomClient, list: string, serviceData: any) => {
+export const serviceUp = async (redis: RedisConnection, list: string, serviceData: any) => {
   const services = await redis.client?.get(list);
   const upServices = await JSON.parse(services || '{}');
 
@@ -15,7 +15,7 @@ export const serviceUp = async (redis: RedisCustomClient, list: string, serviceD
   console.log(`${serviceData.self.serviceName} already Registered`);
 };
 
-export const serviceDown = async (redis: RedisCustomClient, list: string, serviceName: string) => {
+export const serviceDown = async (redis: RedisConnection, list: string, serviceName: string) => {
   const services = await redis.client?.get(list);
   const upServices = await JSON.parse(services || '{}');
 
