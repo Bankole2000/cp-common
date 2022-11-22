@@ -3,6 +3,7 @@ export * from './utils/neo4j';
 export * from './utils/rabbitMQ';
 export * from './utils/socketIO';
 export * from './utils/redisConnect';
+export * from './utils/serviceRegistry';
 // export * from './utils/neo4j';
 
 // interface Color {
