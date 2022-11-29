@@ -1,5 +1,7 @@
 import neo4j, { Driver } from 'neo4j-driver';
 
+export { Driver };
+
 let driver: Driver;
 
 export const initDriver = async (uri: string, username: string, password: string) => {
