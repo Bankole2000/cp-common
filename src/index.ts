@@ -1,4 +1,6 @@
 export { Channel } from 'amqplib';
+export { ServiceResponse } from './@types/ServiceResponse';
+export { ServiceEvent } from './@types/ServiceEvent';
 export * from './utils/neo4j';
 export * from './utils/rabbitMQ';
 export * from './utils/socketIO';
