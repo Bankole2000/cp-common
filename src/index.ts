@@ -8,5 +8,6 @@ export * from './utils/redisConnect';
 export * from './utils/serviceRegistry';
 export * from './utils/validators';
 export * from './middleware/authMiddleware';
+export * from './utils/countryData';
 
 console.log('Utilities loaded');
