@@ -35,7 +35,7 @@ export const isOverDaysOld = (date: string, days: number) => {
   return false;
 };
 
-export const isValidDate = (datelike: string) => new Date(datelike) instanceof Date && !Number.isNaN(datelike);
+export const isValidDate = (datelike: string) => new Date(datelike) instanceof Date && !Number.isNaN(datelike) && typeof datelike !== 'boolean' && new Date(datelike).toString() !== 'Invalid Date';
 
 export const isValidImage = (mimetype: string) => {
   const validMimeTypes: { [key: string]: string } = {
