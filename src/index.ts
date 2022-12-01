@@ -10,5 +10,6 @@ export * from './utils/validators';
 export * from './middleware/authMiddleware';
 export * from './middleware/validateResource';
 export * from './utils/countryData';
+export * from './utils/sanitizeData';
 
 console.log('Utilities loaded');
