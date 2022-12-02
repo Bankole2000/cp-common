@@ -11,5 +11,6 @@ export * from './middleware/authMiddleware';
 export * from './middleware/validateResource';
 export * from './utils/countryData';
 export * from './utils/sanitizeData';
+export * from './schema/index.schema';
 
 console.log('Utilities loaded');
