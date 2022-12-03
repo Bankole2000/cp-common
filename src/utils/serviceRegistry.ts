@@ -4,14 +4,21 @@ export const serviceUp = async (redis: RedisConnection, list: string, serviceDat
   await redis.client.connect();
   const services = await redis.client?.get(list);
   const upServices = await JSON.parse(services || '{}');
-
+  const serviceConfig = {
+    ...serviceData,
+    url: `http://${serviceData.self.serviceHost}:${serviceData.self.port}`,
+  };
   if (!upServices[`${serviceData.self.serviceName}`]) {
-    upServices[`${serviceData.self.serviceName}`] = {
-      ...serviceData,
-      url: `http://${serviceData.self.serviceHost}:${serviceData.self.port}`,
-    };
+    upServices[`${serviceData.self.serviceName}`] = serviceConfig;
     await redis.client?.set(list, JSON.stringify(upServices));
     console.log(`${serviceData.self.serviceName} newly Registered`);
+    await redis.client.disconnect();
+    return;
+  }
+  if (JSON.stringify(upServices[`${serviceData.self.serviceName}`]) !== JSON.stringify(serviceConfig)) {
+    upServices[`${serviceData.self.serviceName}`] = serviceConfig;
+    await redis.client?.set(list, JSON.stringify(upServices));
+    console.log(`${serviceData.self.serviceName} updated`);
     await redis.client.disconnect();
     return;
   }
