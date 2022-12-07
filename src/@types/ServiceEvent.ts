@@ -21,7 +21,7 @@ export class ServiceEvent implements AppEvent {
     accessToken: string | null,
     // origin = config.get<string>('self.serviceName')
     origin = process.env.SERVICE_NAME || 'UNKNOWN',
-    serviceQueues = [],
+    serviceQueues: string[] = [],
   ) {
     this.type = type;
     this.data = data;
