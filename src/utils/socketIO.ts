@@ -3,12 +3,12 @@ import { DefaultEventsMap } from 'socket.io/dist/typed-events';
 
 let io: Server<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap, any>;
 
-const setIO = (server: any, path?: string) => {
+const setIO = (server: any, path: string) => {
   io = new Server(server, {
     cors: {
       origin: '*',
     },
-    path: path || '/api/v1/notification/socket',
+    path,
   });
   return io;
 };

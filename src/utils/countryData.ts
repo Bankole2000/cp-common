@@ -3,6 +3,7 @@ import * as statesJson from '../data/states.json';
 import * as currencyJson from '../data/currencyObject.json';
 import * as currencies from '../data/currencies.json';
 
+export { getAdjectives } from '../data/adjectives';
 export const countries = countriesJson;
 export const states = statesJson;
 export const currencyObject = currencyJson;
