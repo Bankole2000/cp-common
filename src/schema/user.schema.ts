@@ -44,5 +44,25 @@ export const verifyEmailSchema = object({
   }),
 });
 
-export const userFieldsList = ['firstname', 'lastname', 'email', 'username', 'emailVerified'];
-export const systemPermittedRoles = ['SYSTEM', 'ADMIN'];
+export const userUpdateFields = ['email', 'emailVerified', 'phone', 'phoneVerified', 'phoneData', 'registeredVia', 'username', 'gender', 'roles', 'firstname', 'lastname', 'displayname', 'dob', 'tos', 'version', 'deletedAt'];
+export const userCreateFields = ['userId', ...userUpdateFields];
+export const superAdminRoles = ['SUPER_ADMIN'];
+export const adminRoles = ['ADMIN', ...superAdminRoles];
+export const systemRoles = ['SYSTEM', ...adminRoles];
+export const supportRoles = ['SUPPORT', ...systemRoles];
+export const contentModerationRoles = ['MODERATOR', 'MODERATION', ...supportRoles];
+export const disputeResolutionRoles = ['JURY', 'JUDGE', ...contentModerationRoles];
+export const agentRoles = ['SCOUT', 'AGENT', ...contentModerationRoles];
+export const allRoles = Array.from(new Set(['USER', ...agentRoles, ...disputeResolutionRoles]));
+
+export const userAccountSettingsCategories = {
+  FOLLOWING: 'FOLLOWING',
+  NOTIFICATIONS: 'NOTIFICATIONS',
+  PRIVACY: 'PRIVACY',
+  SECURITY: 'SECURITY',
+  ACCOUNT: 'ACCOUNT',
+};
+
+export const userAccountSettingsFields = {
+  FOLLOWING: ['following'],
+};
