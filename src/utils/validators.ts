@@ -1,5 +1,5 @@
 const emailRegex = /^[a-z]+(_|\.)?[a-z0-9]*@[a-z]+\.[a-z]{2,}$/i;
-const userNameRegex = /^[a-z0-9_]+$/i;
+const userNameRegex = /^[a-z0-9_]+$/;
 const nameRegex = /^[a-z-]+$/i;
 const phoneRegex = /^[0-9-+]+$/i;
 const validStringRegex = /([^\s])/;
