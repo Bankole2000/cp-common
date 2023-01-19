@@ -1,7 +1,7 @@
-import * as countriesJson from '../data/countries.json';
-import * as statesJson from '../data/states.json';
-import * as currencyJson from '../data/currencyObject.json';
-import * as currencies from '../data/currencies.json';
+import countriesJson from '../data/countries.json';
+import statesJson from '../data/states.json';
+import currencyJson from '../data/currencyObject.json';
+import currencies from '../data/currencies.json';
 
 export { getAdjectives } from '../data/adjectives';
 export const countries = countriesJson;
