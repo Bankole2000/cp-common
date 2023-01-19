@@ -12,5 +12,6 @@ export * from './middleware/validateResource';
 export * from './utils/countryData';
 export * from './utils/sanitizeData';
 export * from './schema/index.schema';
+export { faIconsList, mdiIconsList, mdiIconsData } from './utils/iconsData';
 
 console.log('Utilities loaded');
